@@ -10,9 +10,13 @@ public class Main {
         Calculator calculator = new Calculator(nums);
         System.out.println(nums + " = " + calculator.PlusAndMinus());
     }
+    //* Метод считавающий данные из файла input
     public static String readUsingFiles(String input) throws IOException {
         return new String(Files.readAllBytes(Paths.get(input)));
     }
+
+       //*Класс описывающий калькулятор
+
     
     public static class Calculator {
         File output = new File("output");
@@ -20,11 +24,14 @@ public class Main {
 
         String[] space;
         int indexspace;
+        //* Конструктор класса
         public Calculator(String nums) throws FileNotFoundException {
             this.space = nums.split(" ");
             this.indexspace = 0;
         }
 
+        //* Метод сложения и вычитания
+        //* Выполняет функции проверки корректности данных
         public double PlusAndMinus() {
             try {
 
@@ -54,6 +61,7 @@ public class Main {
             }
             return 0;
         }
+        //* Метод умножения и деления
         public double DivisionAndMultiplication() {
 
             double first = ExponentdReamainder();
@@ -77,6 +85,7 @@ public class Main {
             }
             return first;
         }
+        //* Метод нахождения остатка от деления и возведения в степень
 
         public double ExponentdReamainder() {
             double first = Double.parseDouble(space[indexspace++]);
